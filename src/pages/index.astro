@@ -1,0 +1,16 @@
+---
+import Card from '@/components/Card.astro';
+import Layout from '../layouts/Layout.astro';
+
+const planX5 = {
+	name: 'PlanX5',
+	img: '/logo-planx5.png'
+}
+---
+
+<Layout title="Ideas Propias">
+	<main>
+		<h1 class="text-center text-5xl text-dark-blue">Ideas Propias</h1>
+		<Card project={planX5} />
+	</main>
+</Layout>
