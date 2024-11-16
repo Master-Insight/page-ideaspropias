@@ -18,5 +18,8 @@ export default {
     },
     extend: {},
   },
-  plugins: [typography],
+  plugins: [
+    typography,
+    require('@tailwindcss/typography'),
+  ],
 }
