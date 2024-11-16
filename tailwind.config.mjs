@@ -1,4 +1,5 @@
 import typography from '@tailwindcss/typography'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,6 +11,10 @@ export default {
       'dark-blue': '#32859f',
       'details-gold': '#c7ae6a',
       'secondary-gray': '#e6e6e6',
+    },
+    fontFamily: {
+      title: ['Francois One', ...defaultTheme.fontFamily.sans],
+      subtitle: ['Poiret One', ...defaultTheme.fontFamily.sans],
     },
     extend: {},
   },
