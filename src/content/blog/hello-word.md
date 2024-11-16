@@ -1,6 +1,6 @@
 ---
 title: "Hello World"
-pubDate: "15/11/2024"
+pubDate: "2024-11-15"
 autor: "Juan Linietsky"
 ---
 # La Importancia de la Inteligencia Artificial en la Atención al Cliente
@@ -39,7 +39,5 @@ Implementar IA en la atención al cliente no solo mejora la experiencia del usua
 La implementación de IA en la atención al cliente ya no es un lujo, sino una necesidad para mantenerse competitivo en el mercado actual. Si bien la inversión inicial puede parecer elevada, los beneficios a largo plazo en términos de eficiencia, satisfacción del cliente y reducción de costos justifican ampliamente esta decisión.
 
 **¿Tu empresa está preparada para dar este paso hacia el futuro?** Invertir en IA no solo optimiza tu atención al cliente, sino que también marca la diferencia entre ser un líder del mercado o quedarse atrás.
-
----
 
 *¿Qué opinas sobre la integración de IA en la atención al cliente? Déjanos tus comentarios y experiencias.*
