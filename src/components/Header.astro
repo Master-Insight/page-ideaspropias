@@ -1,4 +1,24 @@
-<header class="sticky top-0 right-0 left-0 bg-[#fff] z-50">
+---
+const LINKS = [
+  {
+    title: 'Inicio',
+    link: '/'
+  },
+  {
+    title: 'Nosotros',
+    link: '/about'
+  },
+  {
+    title: 'Servicios',
+    link: '/services'
+  },
+  {
+    title: 'Contacto',
+    link: '/contact'
+  }
+]
+---
+<header class="sticky top-0 right-0 left-0 bg-[#fff]/65 backdrop-blur-md z-50">
   <nav class='py-6 px-8 flex justify-between items-center md:max-w-[1400px] md:mx-auto mb-3'>
     <a href="/" aria-label="Regresar a la página de inicio">
       <img
@@ -7,11 +27,14 @@
         class="w-auto h-[46px]"
       />
     </a>
-    <ul class='flex justify-between items-center gap-6'>
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/about">Nosotros</a></li>
-      <li><a href="/services">Servicios</a></li>
-      <li><a href="/contact">Contacto</a></li>
+    <ul class='flex justify-between items-center gap-6 text-lg'>
+      {
+        LINKS.map(l => (
+          <li class="hover:text-details-gold transition">
+            <a href={l.link}>{l.title}</a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
