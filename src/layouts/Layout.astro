@@ -25,7 +25,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="min-h-screen">
 			<slot />
 		</main>
 	</body>
@@ -35,17 +35,8 @@ const { title } = Astro.props;
 <style is:global>
 	html {
 		font-family: 'Roboto', system-ui, sans-serif;
-		background: #13151a;
-		color: #fff;
+		background: #fff;
 		scroll-behavior: smooth
-	}
-
-	body {
-		@apply grid place-content-center p-4;
-	}
-
-	body > div {
-		@apply container
 	}
 
 </style>
