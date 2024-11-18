@@ -16,10 +16,14 @@ export default {
       title: ['Francois One', ...defaultTheme.fontFamily.sans],
       subtitle: ['Poiret One', ...defaultTheme.fontFamily.sans],
     },
-    extend: {},
+    extend: {
+      colors: {
+        // extiende nuevos colores , si no uso extend los reemplaza
+      }
+    },
   },
   plugins: [
     typography,
-    require('@tailwindcss/typography'),
   ],
 }
+// min-h-screen hace que lo mas chico de la pantalla es lo que se ve
