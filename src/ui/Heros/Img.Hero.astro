@@ -36,14 +36,19 @@ const colorVariants = {
     buttonBg: "bg-complementary",
   },
   black: {
-    bg: darkMode ? "bg-black" : "bg-black",
+    bg: darkMode ? "bg-black" : "bg-transparent",
     text: darkMode ? "text-white" : "text-white",
     buttonBg: "bg-black",
   },
   white: {
-    bg: darkMode ? "bg-white" : "bg-white",
+    bg: darkMode ? "bg-transparent" : "bg-white",
     text: darkMode ? "text-black" : "text-black",
     buttonBg: "bg-white",
+  },
+  transparent: {
+    bg: "bg-transparent",
+    text: darkMode ? "text-primary-lighter" : "text-primary",
+    buttonBg: "bg-primary",
   },
 };
 const overlayColor = darkMode
