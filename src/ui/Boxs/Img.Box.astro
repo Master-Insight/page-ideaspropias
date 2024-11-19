@@ -1,42 +1,84 @@
 ---
+import { tailwindSizes } from "../utils/variables.js";
+
 let {
+  size = "md",
   backgroundImage, // Imagen de fondo (obligatoria)
   overlay = false, // Si está activado, agrega una capa de atenuación sobre la imagen
   darkMode = false, // Propiedad para alternar entre el modo claro y oscuro
   colorScheme = "primary", // Esquema de color
   opacity = "50",
+  shadow = false, // Si está activado, aplica una sombra al contenedor
+  shadowType = "glow", // Tipo de sombra: glow, bottom, double
+  rounded = false, // Si se activa, las esquinas estarán redondeadas
+  borderRadius = "rounded-lg", // Redondeo por defecto
+  css = "", // estilos adicionales
 } = Astro.props;
 
 // Definimos los esquemas de color para que sean fáciles de aplicar
 const colorVariants = {
   primary: {
     bg: darkMode ? "bg-primary-darker" : "bg-primary-lighter",
+    overlay: darkMode
+      ? "bg-primary-darker opacity-" + opacity
+      : "bg-primary-lighter opacity-" + opacity,
   },
   secondary: {
     bg: darkMode ? "bg-secondary-darker" : "bg-secondary-lighter",
+    overlay: darkMode
+      ? "bg-secondary-darker opacity-" + opacity
+      : "bg-secondary-lighter opacity-" + opacity,
   },
   tertiary: {
     bg: darkMode ? "bg-tertiary-darker" : "bg-tertiary-lighter",
+    overlay: darkMode
+      ? "bg-tertiary-darker opacity-" + opacity
+      : "bg-tertiary-lighter opacity-" + opacity,
   },
   complementary: {
     bg: darkMode ? "bg-complementary-darker" : "bg-complementary-lighter",
+    overlay: darkMode
+      ? "bg-complementary-darker opacity-" + opacity
+      : "bg-complementary-lighter opacity-" + opacity,
+  },
+  black: {
+    bg: "bg-black",
+    overlay: "bg-black opacity-" + opacity,
+  },
+  white: {
+    bg: "bg-white",
+    overlay: "bg-white opacity-" + opacity,
+  },
+  transparent: {
+    bg: "bg-transparent",
+    overlay: darkMode
+      ? "bg-black opacity-" + opacity
+      : "bg-white opacity-" + opacity,
   },
 };
-const overlayColor = darkMode
-  ? "bg-primary-darker opacity-" + opacity
-  : "bg-primary-lighter opacity-" + opacity;
 
+// Seleccionamos el esquema de color
 const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+
+// Clases para sombra opcional, según el tipo de sombra seleccionado
+const shadowClass = shadow ? `shadow-${shadowType}` : "";
+
+// Clases para bordes redondeados si está activado
+const roundedClass = rounded ? borderRadius : "";
 ---
 
 <section
-  class={`relative flex flex-col justify-center items-center text-center mb-4 p-4 ${selectedColors.bg}`}
+  class={`relative flex flex-col justify-center items-center text-center mb-4 p-4 ${selectedColors.bg}  ${shadowClass} ${roundedClass} ${css}`}
   style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
 >
   {/* Capa de atenuación */}
   {
     overlay && (
-      <div class={"absolute inset-0 " + overlayColor} /> // Capa de atenuación
+      <div
+        class={
+          "absolute inset-0 " + selectedColors.overlay + " " + roundedClass
+        }
+      /> // Capa de atenuación
     )
   }
 

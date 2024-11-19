@@ -11,6 +11,7 @@ let {
   opacity = "50",
   shadow = false, // Si está activado, aplica una sombra al contenedor
   shadowType = "glow", // Tipo de sombra: glow, bottom, double
+  transparent = false, // Si se activa, el fondo será transparente
 } = Astro.props;
 
 // Definimos los esquemas de color para que sean fáciles de aplicar
@@ -19,43 +20,58 @@ const colorVariants = {
     bg: darkMode ? "bg-primary-darker" : "bg-primary-lighter",
     text: darkMode ? "text-primary-lighter" : "text-primary",
     buttonBg: "bg-primary",
+    overlay: darkMode
+      ? "bg-primary-darker opacity-" + opacity
+      : "bg-primary-lighter opacity-" + opacity,
   },
   secondary: {
     bg: darkMode ? "bg-secondary-darker" : "bg-secondary-lighter",
     text: darkMode ? "text-secondary-lighter" : "text-secondary-darker",
     buttonBg: "bg-secondary-dark",
+    overlay: darkMode
+      ? "bg-secondary-darker opacity-" + opacity
+      : "bg-secondary-lighter opacity-" + opacity,
   },
   tertiary: {
     bg: darkMode ? "bg-tertiary-darker" : "bg-tertiary-lighter",
     text: darkMode ? "text-tertiary-lighter" : "text-tertiary",
     buttonBg: "bg-tertiary",
+    overlay: darkMode
+      ? "bg-tertiary-darker opacity-" + opacity
+      : "bg-tertiary-lighter opacity-" + opacity,
   },
   complementary: {
     bg: darkMode ? "bg-complementary-darker" : "bg-complementary-lighter",
     text: darkMode ? "text-complementary-lighter" : "text-complementary",
     buttonBg: "bg-complementary",
+    overlay: darkMode
+      ? "bg-complementary-darker opacity-" + opacity
+      : "bg-complementary-lighter opacity-" + opacity,
   },
   black: {
     bg: darkMode ? "bg-black" : "bg-transparent",
     text: darkMode ? "text-white" : "text-white",
     buttonBg: "bg-black",
+    overlay: "bg-black opacity-" + opacity,
   },
   white: {
     bg: darkMode ? "bg-transparent" : "bg-white",
     text: darkMode ? "text-black" : "text-black",
     buttonBg: "bg-white",
+    overlay: "bg-white opacity-" + opacity,
   },
   transparent: {
     bg: "bg-transparent",
     text: darkMode ? "text-primary-lighter" : "text-primary",
     buttonBg: "bg-primary",
+    overlay: darkMode
+      ? "bg-black opacity-" + opacity
+      : "bg-white opacity-" + opacity,
   },
 };
-const overlayColor = darkMode
-  ? "bg-primary-darker opacity-" + opacity
-  : "bg-primary-lighter opacity-" + opacity;
 
 const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+if (transparent) selectedColors.bg = "bg-transparent";
 
 // Clases para sombra opcional, según el tipo de sombra seleccionado
 const shadowClass = shadow ? `shadow-${shadowType}` : "";
@@ -68,7 +84,7 @@ const shadowClass = shadow ? `shadow-${shadowType}` : "";
   {/* Capa de atenuación */}
   {
     overlay && (
-      <div class={"absolute inset-0 " + overlayColor} /> // Capa de atenuación oscura
+      <div class={"absolute inset-0 " + selectedColors.overlay} /> // Capa de atenuación oscura
     )
   }
 
