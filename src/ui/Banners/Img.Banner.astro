@@ -5,6 +5,8 @@ let {
   darkMode = false, // Propiedad para alternar entre el modo claro y oscuro
   colorScheme = "primary", // Esquema de color
   opacity = "50",
+  shadow = false, // Si está activado, aplica una sombra al contenedor
+  shadowType = "glow", // Tipo de sombra: glow, bottom, double
 } = Astro.props;
 
 // Definimos los esquemas de color para que sean fáciles de aplicar
@@ -26,7 +28,11 @@ const overlayColor = darkMode
   ? "bg-primary-darker opacity-" + opacity
   : "bg-primary-lighter opacity-" + opacity;
 
+// Seleccionamos el esquema de color
 const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+
+// Clases para sombra opcional, según el tipo de sombra seleccionado
+const shadowClass = shadow ? `shadow-${shadowType}` : "";
 ---
 
 <section

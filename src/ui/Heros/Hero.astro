@@ -8,6 +8,7 @@ let {
   colorScheme = "primary", // Permite elegir el esquema de color (primary, secondary, etc.)
   overlay = false, // Si está activado, agrega una capa de atenuación sobre la imagen
   shadow = false, // Si está activado, aplica una sombra al contenedor
+  shadowType = "glow", // Tipo de sombra: glow, bottom, double
 } = Astro.props;
 
 const colorVariants = {
@@ -46,8 +47,8 @@ const colorVariants = {
 // Seleccionamos el esquema de color, incluyendo black y white
 const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
 
-// Clases para sombra opcional
-const shadowClass = shadow ? "shadow-lg" : "";
+// Clases para sombra opcional, según el tipo de sombra seleccionado
+const shadowClass = shadow ? `shadow-${shadowType}` : "";
 ---
 
 <section
