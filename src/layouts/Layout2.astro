@@ -26,11 +26,14 @@ const { title } = Astro.props;
   <body>
     <Header />
     <div class="flex gap-4 p-3">
-      <a href="/components/hero">hero</a>
-      <a href="/components/banners">banners</a>
-      <a href="/components/box">box</a>
+      <a class="hecho" href="/components/hero">hero</a>
+      <a class="hecho" href="/components/banners">banners</a>
+      <a class="hecho" href="/components/box">box</a>
       <a href="/components/cards">cards</a>
       <a href="/components/columns">columns</a>
+      <a href="/components/columns">grid cards</a>
+      <a href="/components/columns">modal</a>
+      <a href="/components/columns">buttons</a>
     </div>
     <main>
       <slot />
@@ -39,7 +42,7 @@ const { title } = Astro.props;
   <Footer />
 </html>
 
-<style is:global>
+<style>
   html {
     @apply flex flex-col max-w-full;
   }
@@ -50,5 +53,11 @@ const { title } = Astro.props;
 
   body > div {
     @apply container;
+  }
+  a {
+    @apply p-2 border border-black rounded-lg;
+  }
+  .hecho {
+    @apply bg-green-600 border-none;
   }
 </style>
