@@ -6,6 +6,10 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      fontFamily: {
+        title: ['Francois One', ...defaultTheme.fontFamily.sans],
+        subtitle: ['Poiret One', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         // https://paletton.com/#uid=43p0u0kmaGWbLTAhwNgqFAFwxuh
         primary: {
@@ -39,9 +43,13 @@ export default {
         white: '#ffffff',      // Blanco
         black: '#111111',      // Negro
       },
-      fontFamily: {
-        title: ['Francois One', ...defaultTheme.fontFamily.sans],
-        subtitle: ['Poiret One', ...defaultTheme.fontFamily.sans],
+      boxShadow: {
+        // Resplandor
+        'glow': '0 0 15px rgba(0, 0, 0, 0.7)',
+        // Sombra abajo a la derecha
+        'bottom': '4px 4px 10px rgba(0, 0, 0, 0.3)',
+        // Sombra combinada (abajo a la derecha negra y arriba a la izquierda blanca)
+        'double': '4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.5)',
       },
     },
   },
