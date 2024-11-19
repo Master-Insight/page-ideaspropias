@@ -57,6 +57,9 @@ const colorVariants = {
   },
 };
 
+// Obtén el tamaño según el prop 'size', con valor por defecto 'md'
+const selectedSize = tailwindSizes[size] || tailwindSizes["md"];
+
 // Seleccionamos el esquema de color
 const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
 
@@ -68,7 +71,7 @@ const roundedClass = rounded ? borderRadius : "";
 ---
 
 <section
-  class={`relative flex flex-col justify-center items-center text-center mb-4 p-4 ${selectedColors.bg}  ${shadowClass} ${roundedClass} ${css}`}
+  class={`${selectedSize} relative flex flex-col justify-center items-center text-center mb-4 p-4 ${selectedColors.bg}  ${shadowClass} ${roundedClass} ${css}`}
   style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
 >
   {/* Capa de atenuación */}
