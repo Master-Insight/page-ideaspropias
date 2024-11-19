@@ -9,6 +9,7 @@ let {
   darkMode = false, // Propiedad para alternar entre el modo claro y oscuro
   colorScheme = "primary", // Esquema de color
   opacity = "50",
+  shadow = false, // Si está activado, aplica una sombra al contenedor
 } = Astro.props;
 
 // Definimos los esquemas de color para que sean fáciles de aplicar
@@ -33,16 +34,29 @@ const colorVariants = {
     text: darkMode ? "text-complementary-lighter" : "text-complementary",
     buttonBg: "bg-complementary",
   },
+  black: {
+    bg: darkMode ? "bg-black" : "bg-black",
+    text: darkMode ? "text-white" : "text-white",
+    buttonBg: "bg-black",
+  },
+  white: {
+    bg: darkMode ? "bg-white" : "bg-white",
+    text: darkMode ? "text-black" : "text-black",
+    buttonBg: "bg-white",
+  },
 };
 const overlayColor = darkMode
   ? "bg-primary-darker opacity-" + opacity
   : "bg-primary-lighter opacity-" + opacity;
 
 const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+
+// Clases para sombra opcional
+const shadowClass = shadow ? "shadow-lg" : "";
 ---
 
 <section
-  class={`relative h-96 flex flex-col justify-center items-center text-center mb-4 ${selectedColors.bg}`}
+  class={`relative h-96 flex flex-col justify-center items-center text-center mb-4 ${selectedColors.bg} ${shadowClass}`}
   style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
 >
   {/* Capa de atenuación */}
