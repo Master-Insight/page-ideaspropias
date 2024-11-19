@@ -1,0 +1,46 @@
+---
+let {
+  backgroundImage, // Imagen de fondo (obligatoria)
+  overlay = false, // Si está activado, agrega una capa de atenuación sobre la imagen
+  darkMode = false, // Propiedad para alternar entre el modo claro y oscuro
+  colorScheme = "primary", // Esquema de color
+  opacity = "50",
+} = Astro.props;
+
+// Definimos los esquemas de color para que sean fáciles de aplicar
+const colorVariants = {
+  primary: {
+    bg: darkMode ? "bg-primary-darker" : "bg-primary-lighter",
+  },
+  secondary: {
+    bg: darkMode ? "bg-secondary-darker" : "bg-secondary-lighter",
+  },
+  tertiary: {
+    bg: darkMode ? "bg-tertiary-darker" : "bg-tertiary-lighter",
+  },
+  complementary: {
+    bg: darkMode ? "bg-complementary-darker" : "bg-complementary-lighter",
+  },
+};
+const overlayColor = darkMode
+  ? "bg-primary-darker opacity-" + opacity
+  : "bg-primary-lighter opacity-" + opacity;
+
+const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+---
+
+<section
+  class={`relative flex flex-col justify-center items-center text-center mb-4 p-4 ${selectedColors.bg}`}
+  style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
+>
+  {/* Capa de atenuación */}
+  {
+    overlay && (
+      <div class={"absolute inset-0 " + overlayColor} /> // Capa de atenuación
+    )
+  }
+
+  <div class="relative z-10">
+    <slot />
+  </div>
+</section>

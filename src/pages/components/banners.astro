@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout2.astro";
+import UiBanner from "@/ui/Banners/Banner.astro";
+import UiImgBanner from "@/ui/Banners/Img.Banner.astro";
+
+const colors = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "complementary",
+  "black",
+  "white",
+];
+const color = colors[0];
+---
+
+<Layout title="Components">
+  <UiBanner colorScheme={color}> <p>Example</p><p>Example</p></UiBanner>
+  <UiBanner colorScheme={color} darkMode
+    ><p>Example</p><p>Example</p><p>Example</p></UiBanner
+  >
+  <UiImgBanner overlay backgroundImage="/images/hero_inicio.jpeg"
+    ><p>Example</p><p>Example</p></UiImgBanner
+  >
+  <UiImgBanner backgroundImage="/images/hero_inicio.jpeg" overlay darkMode
+    ><p>Example</p><p>Example</p><p>Example</p><p>Example</p></UiImgBanner
+  >
+</Layout>

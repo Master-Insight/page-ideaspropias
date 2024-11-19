@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout2.astro";
+import UiBox from "@/ui/Boxs/Box.astro";
+import UiImgBox from "@/ui/Boxs/Img.Box.astro";
+
+const colors = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "complementary",
+  "black",
+  "white",
+];
+const color = colors[0];
+---
+
+<Layout title="Components">
+  <UiBox colorScheme={color}> <p>Example</p><p>Example</p></UiBox>
+  <UiBox colorScheme={color} darkMode
+    ><p>Example</p><p>Example</p><p>Example</p></UiBox
+  >
+  <UiImgBox overlay backgroundImage="/images/hero_inicio.jpeg"
+    ><p>Example</p><p>Example</p></UiImgBox
+  >
+  <UiImgBox backgroundImage="/images/hero_inicio.jpeg" overlay darkMode
+    ><p>Example</p><p>Example</p><p>Example</p><p>Example</p></UiImgBox
+  >
+</Layout>
