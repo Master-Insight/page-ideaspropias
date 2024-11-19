@@ -5,28 +5,39 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    // colors: {
-    //   'primary-blue': '#41a4c3',
-    //   'light-blue': '#60b7cf',
-    //   'dark-blue': '#32859f',
-    //   'details-gold': '#c7ae6a',
-    //   'secondary-gray': '#e6e6e6',
-    // },
-    // fontFamily: {
-    //   title: ['Francois One', ...defaultTheme.fontFamily.sans],
-    //   subtitle: ['Poiret One', ...defaultTheme.fontFamily.sans],
-    // },
     extend: {
       colors: {
+        // https://paletton.com/#uid=43p0u0kmaGWbLTAhwNgqFAFwxuh
         primary: {
-          DEFAULT: '#41a4c3',
-          light: '#60b7cf',
-          dark: '#32859f',
+          lighter: '#97D5E9',
+          light: '#65BAD6',
+          DEFAULT: '#41A3C3', // Color principal
+          dark: '#238DB0',
+          darker: '#238DB0',
         },
-        'details': '#c7ae6a',
-        'gray': '#e6e6e6',
-        'white': '#ffffff',
-        'black': '#111111'
+        complementary: {
+          lighter: '#FFD1A1',
+          light: '#FFBB73',
+          DEFAULT: '#FFA94E', // Color complementary
+          dark: '#FF972A',
+          darker: '#F17C00',
+        },
+        secondary: {
+          lighter: '#FFE3A1',
+          light: '#FFD673',
+          DEFAULT: '#FFCB4E', // Color secondary
+          dark: '#FFC02A',
+          darker: '#F1AA00',
+        },
+        tertiary: {
+          lighter: '#FFB0A1',
+          light: '#FF8973',
+          DEFAULT: '#FF694E', // Color tertiary
+          dark: '#FF4B2A',
+          darker: '#F12500',
+        },
+        white: '#ffffff',      // Blanco
+        black: '#111111',      // Negro
       },
       fontFamily: {
         title: ['Francois One', ...defaultTheme.fontFamily.sans],
@@ -36,7 +47,3 @@ export default {
   },
   plugins: [typography],
 }
-/*
-  bg-primary para el color principal.
-  bg-primary-light o text-primary-dark para variaciones.
-*/
