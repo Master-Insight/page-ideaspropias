@@ -1,0 +1,57 @@
+---
+let {
+  title = "Bienvenidos a nuestra tienda", // Título principal
+  subtitle, // Subtítulo opcional
+  ctaText, // Texto del botón opcional
+  ctaLink, // Enlace del botón opcional
+  darkMode = false, // Propiedad para alternar entre el modo claro y oscuro
+  colorScheme = "primary", // Permite elegir el esquema de color (primary, secondary, etc.)
+} = Astro.props;
+
+const colorVariants = {
+  primary: {
+    bg: darkMode ? "bg-primary-darker" : "bg-primary-lighter",
+    text: darkMode ? "text-primary-lighter" : "text-primary",
+    buttonBg: "bg-primary",
+  },
+  secondary: {
+    bg: darkMode ? "bg-secondary-darker" : "bg-secondary-lighter",
+    text: darkMode ? "text-secondary-lighter" : "text-secondary-darker",
+    buttonBg: "bg-secondary-dark",
+  },
+  tertiary: {
+    bg: darkMode ? "bg-tertiary-darker" : "bg-tertiary-lighter",
+    text: darkMode ? "text-tertiary-lighter" : "text-tertiary",
+    buttonBg: "bg-tertiary",
+  },
+  complementary: {
+    bg: darkMode ? "bg-complementary-darker" : "bg-complementary-lighter",
+    text: darkMode ? "text-complementary-lighter" : "text-complementary",
+    buttonBg: "bg-complementary",
+  },
+};
+
+// Seleccionamos el esquema de color
+const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+---
+
+<section
+  class={`h-96 flex flex-col justify-center items-center text-center mb-4 ${selectedColors.bg}`}
+>
+  {/* Título principal */}
+  <h1 class={`text-4xl font-title ${selectedColors.text}`}>{title}</h1>
+
+  {/* Subtítulo opcional */}
+  {subtitle && <p class="text-lg mt-4">{subtitle}</p>}
+
+  {/* Botón opcional con enlace */}
+  {
+    ctaText && ctaLink && (
+      <a
+        href={ctaLink}
+        class={`mt-6 inline-block ${selectedColors.buttonBg} text-white py-3 px-6 rounded hover:${selectedColors.buttonBg}-dark`}>
+        {ctaText}
+      </a>
+    )
+  }
+</section>

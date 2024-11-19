@@ -1,0 +1,47 @@
+---
+import "@fontsource/roboto";
+import "@fontsource/francois-one";
+import "@fontsource/poiret-one";
+
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Consultora especializada en ventas" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
+  <Footer />
+</html>
+
+<style is:global>
+  html {
+    @apply flex flex-col max-w-full;
+  }
+
+  body {
+    @apply flex flex-col max-w-full my-8;
+  }
+
+  body > div {
+    @apply container;
+  }
+</style>
