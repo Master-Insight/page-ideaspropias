@@ -1,35 +1,42 @@
 ---
 const LINKS = [
   {
-    title: 'Inicio',
-    link: '/'
+    title: "Inicio",
+    link: "/",
   },
   {
-    title: 'Nosotros',
-    link: '/about'
+    title: "Nosotros",
+    link: "/about",
   },
   {
-    title: 'Servicios',
-    link: '/services'
+    title: "Servicios",
+    link: "/services",
   },
   {
-    title: 'Contacto',
-    link: '/contact'
-  }
-]
+    title: "Contacto",
+    link: "/contact",
+  },
+  {
+    title: "Aux",
+    link: "/components",
+  },
+];
 ---
+
 <header class="sticky top-0 right-0 left-0 bg-[#fff]/65 backdrop-blur-md z-50">
-  <nav class='py-6 px-8 flex justify-between items-center md:max-w-[1400px] md:mx-auto mb-3'>
+  <nav
+    class="py-6 px-8 flex justify-between items-center md:max-w-[1400px] md:mx-auto mb-3"
+  >
     <a href="/" aria-label="Regresar a la página de inicio">
       <img
-        src='/logo.svg'
-        alt='Logo de Ideas Propias'
-        class="w-auto h-[46px]"
+        src="/logo-color.svg"
+        alt="Logo de Ideas Propias"
+        class="w-auto h-10"
       />
     </a>
-    <ul class='flex justify-between items-center gap-6 text-lg'>
+    <ul class="flex justify-between items-center gap-6 text-lg">
       {
-        LINKS.map(l => (
+        LINKS.map((l) => (
           <li class="hover:text-details-gold transition">
             <a href={l.link}>{l.title}</a>
           </li>
