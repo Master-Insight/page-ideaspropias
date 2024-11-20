@@ -51,6 +51,14 @@ export default {
         // Sombra combinada (abajo a la derecha negra y arriba a la izquierda blanca)
         'double': '4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.5)',
       },
+      height: {
+        "104": "26rem",
+        "112": "28rem",
+        "120": "30rem",
+        "128": "32rem",
+        "136": "34rem",
+        "144": "36rem",
+      }
     },
   },
   plugins: [typography],

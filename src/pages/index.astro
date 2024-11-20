@@ -1,66 +1,68 @@
 ---
-import Card from '@/components/Card.astro';
-import Layout from '@/layouts/Layout.astro';
+import Card from "@/components/Card.astro";
+import Layout from "@/layouts/Layout.astro";
 
-const PROJECTS = [
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	}
-]	
+const SERVICES = [
+  {
+    title: "Disertación",
+    subtitle: "Detalles",
+    img: "/Icono.svg",
+    url: "#",
+  },
+  {
+    title: "Asistenicia",
+    subtitle: "Detalles",
+    img: "/Icono.svg",
+    url: "#",
+  },
+  {
+    title: "Rescate",
+    subtitle: "Detalles",
+    img: "/Icono.svg",
+    url: "#",
+  },
+];
 ---
 
 <Layout title="Ideas Propias">
-	<h1 class="text-center text-5xl text-dark-blue font-title">Ideas Propias</h1>
-	<div class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-		{
-			PROJECTS.map(project => (
-				<Card data={project} />
-			))
-		}
-	</div>
+  <!-- Hero -->
+  <section
+    class="relative h-144 flex flex-col justify-center items-center text-center mb-4 bg-primary-lighter shadow-glow shadow-gray-300"
+    style="background-image: url('/images/hero_inicio.jpeg'); background-size: cover ; background-position: top;"
+  >
+    {/* Capa de atenuación */}
+    <div class={"absolute inset-0 bg-primary-lighter opacity-70"}></div>
+
+    <div class="relative z-10">
+      {/* Esto asegura que el contenido quede encima de la capa */}
+
+      <h2 class="text-4xl font-title text-primary">
+        Bienvenidos a nuestra plataforma
+      </h2>
+
+      {/* Subtítulo opcional */}
+      <p class="text-lg mt-4">Texto subitulo opcional</p>
+    </div>
+  </section>
+
+  <!-- Texto Intermedio -->
+  <div
+    class="flex flex-col justify-center items-center mt-32 mb-16 text-center"
+  >
+    <p class="w-4/5 text-2xl">
+      <span class="font-bold">Ideas Propias</span> es una consultora integral de
+      negocios que asesora a empresas, empresarios y emprendedores que tienen ambición
+      de progresar en su negocio.
+    </p>
+    <p class="mt-6 w-4/5 italic text-xl">
+      Con mas de 20 años de trayectoria y exitosas gestiones ponemos a tu
+      disposición todo nuestro conocimiento en distintas áreas para que tengas
+      un acompañamiento real y efectivo que te impulse al éxito de tu negocio.
+    </p>
+  </div>
+  <div
+    class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
+  >
+    {SERVICES.map((service) => <Card data={service} />)}
+  </div>
 </Layout>

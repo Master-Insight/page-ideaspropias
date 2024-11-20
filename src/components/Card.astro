@@ -1,8 +1,27 @@
 ---
-const {data} = Astro.props
-const {name, img} = data
+const { data } = Astro.props;
+const { title, subtitle, img, url = "#" } = data;
 ---
-<div class="bg-light-blue rounded-lg w-80 h-auto p-4 m-4 flex flex-col justify-center items-center gap-2">
-  <h3 class="text-center text-xl flex flex-col">Proyecto: <span class="font-subtitle">{name}</span></h3>
-  <img src={img} alt={`Logo de ${name}`}>  
-</div>
+
+<section
+  class="w-72 h-72 relative flex flex-col justify-center items-center text-center mb-4 p-4 bg-primary-lighter shadow-glow rounded-lg"
+  style=`background-image: url('${img}'); background-size: cover ; background-position: center;`
+>
+  {/* Capa de atenuación */}
+  <div class="absolute inset-0 bg-primary-lighter opacity-90 rounded-lg">
+    <div
+      class="w-72 h-72 flex flex-col items-center justify-center relative z-10"
+    >
+      <h3 class="text-3xl font-subtitle font-semibold">{title}</h3>
+      <p class="text-xl">{subtitle}</p>
+
+      {/* Botón opcional con enlace */}
+      <a
+        href={url}
+        class="mt-6 inline-block bg-primary text-white py-3 px-6 rounded hover:bg-primary-dark"
+      >
+        Ver más
+      </a>
+    </div>
+  </div>
+</section>

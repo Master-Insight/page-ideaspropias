@@ -1,0 +1,31 @@
+---
+let {} = Astro.props;
+---
+
+<!-- Hero -->
+<section
+  class="relative h-144 flex flex-col justify-center items-center text-center mb-4 bg-primary-lighter shadow-glow"
+  style="background-image: url('/images/hero_inicio.jpeg'); background-size: cover ; background-position: center;"
+>
+  {/* Capa de atenuación */}
+  <div class="absolute inset-0 bg-primary-lighter opacity-50"></div>
+
+  <div class="relative z-10">
+    {/* Esto asegura que el contenido quede encima de la capa */}
+
+    <h1 class="text-4xl font-title text-primary">
+      Bienvenidos a nuestra tienda
+    </h1>
+
+    {/* Subtítulo opcional */}
+    <p class="text-lg mt-4">Subtitulo</p>
+
+    {/* Botón opcional con enlace */}
+    <a
+      href="#"
+      class="mt-6 inline-block bg-primary text-white py-3 px-6 rounded hover:bg-primary-dark"
+    >
+      Acción
+    </a>
+  </div>
+</section>

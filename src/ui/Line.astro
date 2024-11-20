@@ -1,0 +1,32 @@
+---
+let {
+  darkMode = false, // Propiedad para alternar entre el modo claro y oscuro
+  colorScheme = "primary", // Permite elegir el esquema de color (primary, secondary, etc.)
+} = Astro.props;
+
+const colorVariants = {
+  primary: {
+    bg: darkMode ? "bg-primary-darker" : "bg-primary-lighter",
+  },
+  secondary: {
+    bg: darkMode ? "bg-secondary-darker" : "bg-secondary-lighter",
+  },
+  tertiary: {
+    bg: darkMode ? "bg-tertiary-darker" : "bg-tertiary-lighter",
+  },
+  complementary: {
+    bg: darkMode ? "bg-complementary-darker" : "bg-complementary-lighter",
+  },
+  black: {
+    bg: darkMode ? "bg-black" : "bg-black",
+  },
+  white: {
+    bg: darkMode ? "bg-white" : "bg-white",
+  },
+};
+
+// Seleccionamos el esquema de color
+const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+---
+
+<div class=`h-1 mb-4 ${selectedColors.bg}`></div>
