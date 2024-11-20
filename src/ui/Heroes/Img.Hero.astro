@@ -3,6 +3,7 @@ let {
   title = "Bienvenidos a nuestra tienda", // Título principal
   subtitle, // Subtítulo opcional
   backgroundImage, // Imagen de fondo (obligatoria)
+  imagePosition = "center",
   ctaText, // Texto del botón opcional
   ctaLink, // Enlace del botón opcional
   overlay = false, // Si está activado, agrega una capa de atenuación sobre la imagen
@@ -78,8 +79,8 @@ const shadowClass = shadow ? `shadow-${shadowType}` : "";
 ---
 
 <section
-  class={`relative h-96 flex flex-col justify-center items-center text-center mb-4 ${selectedColors.bg} ${shadowClass}`}
-  style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
+  class={`relative h-144 flex flex-col justify-center items-center text-center mb-4 ${selectedColors.bg} ${shadowClass}`}
+  style={`background-image: url('${backgroundImage}'); background-size: cover ; background-position: ${imagePosition};`}
 >
   {/* Capa de atenuación */}
   {

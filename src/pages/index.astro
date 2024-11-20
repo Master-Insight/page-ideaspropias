@@ -1,66 +1,29 @@
 ---
-import Card from '@/components/Card.astro';
-import Layout from '@/layouts/Layout.astro';
+import Card from "@/components/Card.astro";
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/ui/Heroes/Img.Hero.astro";
 
 const PROJECTS = [
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	},
-	{
-		name: 'PlanX5',
-		img: '/logo.svg'
-	}
-]	
+  {
+    name: "PlanX5",
+    img: "/logo.svg",
+  },
+];
 ---
 
 <Layout title="Ideas Propias">
-	<h1 class="text-center text-5xl text-dark-blue font-title">Ideas Propias</h1>
-	<div class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-		{
-			PROJECTS.map(project => (
-				<Card data={project} />
-			))
-		}
-	</div>
+  <Hero
+    title="Bienvenidos a nuestra plataforma"
+    subtitle="Texto subitulo opcional"
+    ctaText="Opcional"
+    ctaLink="#"
+    imagePosition="top"
+    overlay
+    backgroundImage="/images/hero_inicio.jpeg"
+  />
+  <div
+    class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
+  >
+    {PROJECTS.map((project) => <Card data={project} />)}
+  </div>
 </Layout>
