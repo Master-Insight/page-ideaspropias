@@ -2,15 +2,65 @@
 import Card from '@/components/Card.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const planX5 = {
-	name: 'PlanX5',
-	img: '/logo-planx5.png'
-}
+const PROJECTS = [
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	},
+	{
+		name: 'PlanX5',
+		img: '/logo.svg'
+	}
+]	
 ---
 
 <Layout title="Ideas Propias">
-	<div>
-		<h1 class="text-center text-5xl text-dark-blue font-title">Ideas Propias</h1>
-		<Card project={planX5} />
+	<h1 class="text-center text-5xl text-dark-blue font-title">Ideas Propias</h1>
+	<div class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+		{
+			PROJECTS.map(project => (
+				<Card data={project} />
+			))
+		}
 	</div>
 </Layout>
