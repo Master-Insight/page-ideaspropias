@@ -2,15 +2,30 @@
 import Card from "@/components/Card.astro";
 import Layout from "@/layouts/Layout.astro";
 
-const PROJECTS = [
+const SERVICES = [
   {
-    name: "PlanX5",
-    img: "/logo.svg",
+    title: "Disertación",
+    subtitle: "Detalles",
+    img: "/Icono.svg",
+    url: "#",
+  },
+  {
+    title: "Asistenicia",
+    subtitle: "Detalles",
+    img: "/Icono.svg",
+    url: "#",
+  },
+  {
+    title: "Rescate",
+    subtitle: "Detalles",
+    img: "/Icono.svg",
+    url: "#",
   },
 ];
 ---
 
 <Layout title="Ideas Propias">
+  <!-- Hero -->
   <section
     class="relative h-144 flex flex-col justify-center items-center text-center mb-4 bg-primary-lighter shadow-glow shadow-gray-300"
     style="background-image: url('/images/hero_inicio.jpeg'); background-size: cover ; background-position: top;"
@@ -30,6 +45,7 @@ const PROJECTS = [
     </div>
   </section>
 
+  <!-- Texto Intermedio -->
   <div
     class="flex flex-col justify-center items-center mt-32 mb-16 text-center"
   >
@@ -47,6 +63,6 @@ const PROJECTS = [
   <div
     class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
   >
-    {PROJECTS.map((project) => <Card data={project} />)}
+    {SERVICES.map((service) => <Card data={service} />)}
   </div>
 </Layout>
