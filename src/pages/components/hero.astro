@@ -1,0 +1,53 @@
+---
+import Layout from "@/layouts/Layout2.astro";
+import BasicHero from "@/ui/Heros/Hero.astro";
+import BasicImgHero from "@/ui/Heros/Img.Hero.astro";
+
+const colors = [
+  "transparent",
+  "primary",
+  "secondary",
+  "tertiary",
+  "complementary",
+  "black",
+  "white",
+];
+const color = colors[1];
+---
+
+<Layout title="Components">
+  <BasicHero
+    title="Bienvenidos a nuestra plataforma"
+    subtitle="Texto subitulo opcional"
+    ctaText="Opcional"
+    ctaLink="#"
+    colorScheme={color}
+    shadow
+  />
+  <BasicHero
+    title="Bienvenidos a nuestra plataforma"
+    subtitle="Texto subitulo opcional"
+    ctaText="Opcional"
+    ctaLink="#"
+    colorScheme={color}
+    darkMode
+    shadow
+  />
+  <BasicImgHero
+    title="Bienvenidos a nuestra plataforma"
+    subtitle="Texto subitulo opcional"
+    ctaText="Opcional"
+    ctaLink="#"
+    overlay
+    backgroundImage="/images/hero_inicio.jpeg"
+  />
+  <BasicImgHero
+    title="Bienvenidos a nuestra plataforma"
+    subtitle="Texto subitulo opcional"
+    ctaText="Opcional"
+    ctaLink="#"
+    backgroundImage="/images/hero_inicio.jpeg"
+    overlay
+    darkMode
+  />
+</Layout>

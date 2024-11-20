@@ -1,0 +1,90 @@
+---
+let {
+  title = "Bienvenidos a nuestra tienda", // Título principal
+  subtitle, // Subtítulo opcional
+  ctaText, // Texto del botón opcional
+  ctaLink, // Enlace del botón opcional
+  darkMode = false, // Propiedad para alternar entre el modo claro y oscuro
+  colorScheme = "primary", // Permite elegir el esquema de color (primary, secondary, etc.)
+  overlay = false, // Si está activado, agrega una capa de atenuación sobre la imagen
+  shadow = false, // Si está activado, aplica una sombra al contenedor
+  shadowType = "glow", // Tipo de sombra: glow, bottom, double
+  transparent = false, // Si se activa, el fondo será transparente
+} = Astro.props;
+
+const colorVariants = {
+  primary: {
+    bg: darkMode ? "bg-primary-darker" : "bg-primary-lighter",
+    text: darkMode ? "text-primary-lighter" : "text-primary",
+    buttonBg: "bg-primary",
+  },
+  secondary: {
+    bg: darkMode ? "bg-secondary-darker" : "bg-secondary-lighter",
+    text: darkMode ? "text-secondary-lighter" : "text-secondary-darker",
+    buttonBg: "bg-secondary-dark",
+  },
+  tertiary: {
+    bg: darkMode ? "bg-tertiary-darker" : "bg-tertiary-lighter",
+    text: darkMode ? "text-tertiary-lighter" : "text-tertiary",
+    buttonBg: "bg-tertiary",
+  },
+  complementary: {
+    bg: darkMode ? "bg-complementary-darker" : "bg-complementary-lighter",
+    text: darkMode ? "text-complementary-lighter" : "text-complementary",
+    buttonBg: "bg-complementary",
+  },
+  black: {
+    bg: darkMode ? "bg-black" : "bg-transparent",
+    text: darkMode ? "text-white" : "text-white",
+    buttonBg: "bg-black",
+  },
+  white: {
+    bg: darkMode ? "bg-transparent" : "bg-white",
+    text: darkMode ? "text-black" : "text-black",
+    buttonBg: "bg-white",
+  },
+  transparent: {
+    bg: "bg-transparent",
+    text: darkMode ? "text-primary-lighter" : "text-primary",
+    buttonBg: "bg-primary",
+  },
+};
+
+// Seleccionamos el esquema de color, incluyendo black y white
+const selectedColors = colorVariants[colorScheme] || colorVariants.primary;
+if (transparent) selectedColors.bg = "bg-transparent";
+
+// Clases para sombra opcional, según el tipo de sombra seleccionado
+const shadowClass = shadow ? `shadow-${shadowType}` : "";
+---
+
+<section
+  class={`h-96 flex flex-col justify-center items-center text-center mb-4 ${selectedColors.bg} ${shadowClass}`}
+>
+  {/* Capa de atenuación (opcional) */}
+  {
+    overlay && (
+      <div class="absolute inset-0 bg-black opacity-50" /> // Capa de atenuación oscura
+    )
+  }
+
+  <div class="relative z-10">
+    {/* Esto asegura que el contenido quede encima de la capa */}
+    {/* Título principal */}
+    <h2 class={`text-4xl font-title ${selectedColors.text}`}>{title}</h2>
+
+    {/* Subtítulo opcional */}
+    {subtitle && <p class="text-lg mt-4">{subtitle}</p>}
+
+    {/* Botón opcional con enlace */}
+    {
+      ctaText && ctaLink && (
+        <a
+          href={ctaLink}
+          class={`mt-6 inline-block ${selectedColors.buttonBg} text-white py-3 px-6 rounded hover:${selectedColors.buttonBg}-dark`}>
+          {ctaText}
+        </a>
+      )
+    }
+  </div>
+</section>
