@@ -1,6 +1,8 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 
+
 export const config = {
+  // Gama de colores
   colors: [
     // https://paletton.com/#uid=43p0u0kmaGWbLTAhwNgqFAFwxuh
     { // 0 - Color complementary
@@ -32,23 +34,35 @@ export const config = {
       darker: '#F12500',
     },
   ],
+  // Colroes fijos
   simpleColors: {
     white: '#ffffff',      // Blanco
     black: '#111111',       // Negro
   },
+  // Información de la empresa (se autocompleta en footer y enlace redes sociales)
   empresa: {
     name: "Ideas Propias",
-    direccion: "",
-    email: "",
-    linkedin: "",
-    instagram: "",
-    facebook: "",
-    whatsapp: "",
+    descripcion: "Consultora integral de negocios que asesora a empresas, empresarios y emprendedores que tienen ambición de progresar en su negocio.",
+    direccion: "dirección",
+    email: "email@email.com",
+    linkedin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/plan.x5/",
+    facebook: "https://www.facebook.com/PlanX5/",
+    youtube: "https://www.youtube.com/channel/UCV4sFnwo1RnMLCIT8xPZ7Yg",
+    whatsapp: "351-1234567",
   },
+  // Imagenes. se clasifica segun la pagina 
   images: {
-    logo: [],
-    index: [],
+    logo: [
+      "/logo.svg",
+      "/logo-color.svg", // pos 1 logo
+      "/logo-planx5.png",
+    ],
+    index: [
+      "/images/hero_inicio.jpeg" // pos 0 Hero
+    ],
   },
+  // Objeto que detalle servicios prestados
   servicios: [ // TODO pasar a "Markdown"
     {
       title: "Disertación",
@@ -72,6 +86,7 @@ export const config = {
   blog: "Markdown",
 }
 
+// Coniguracion de extensión de Tailwind
 export const tailwindExtend = {
   fontFamily: {
     title: ['Francois One', ...defaultTheme.fontFamily.sans],

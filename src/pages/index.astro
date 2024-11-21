@@ -1,34 +1,16 @@
 ---
 import Card from "@/components/Card.astro";
 import Layout from "@/layouts/Layout.astro";
+import { config } from "config";
 
-const SERVICES = [
-  {
-    title: "Disertación",
-    subtitle: "Detalles",
-    img: "/Icono.svg",
-    url: "#",
-  },
-  {
-    title: "Asistencia",
-    subtitle: "Detalles",
-    img: "/Icono.svg",
-    url: "#",
-  },
-  {
-    title: "Rescate",
-    subtitle: "Detalles",
-    img: "/Icono.svg",
-    url: "#",
-  },
-];
+const SERVICES = config.servicios;
 ---
 
 <Layout title="Ideas Propias">
   <!-- Hero -->
   <section
     class="relative h-144 flex flex-col justify-center items-center text-center mb-4 bg-primary-lighter shadow-glow shadow-gray-300"
-    style="background-image: url('/images/hero_inicio.jpeg'); background-size: cover ; background-position: top;"
+    style={`background-image: url('${config.images.index[0]}'); background-size: cover ; background-position: top;`}
   >
     {/* Capa de atenuación */}
     <div class={"absolute inset-0 bg-primary-lighter opacity-70"}></div>
