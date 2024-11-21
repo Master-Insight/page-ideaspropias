@@ -1,37 +1,40 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export const config = {
-  colors: {
+  colors: [
     // https://paletton.com/#uid=43p0u0kmaGWbLTAhwNgqFAFwxuh
-    primary: {
-      lighter: '#97D5E9',
-      light: '#65BAD6',
-      DEFAULT: '#41A3C3', // Color principal
-      dark: '#238DB0',
-      darker: '#238DB0',
-    },
-    complementary: {
+    { // 0 - Color complementary
       lighter: '#FFD1A1',
       light: '#FFBB73',
-      DEFAULT: '#FFA94E', // Color complementary
+      DEFAULT: '#FFA94E',
       dark: '#FF972A',
       darker: '#F17C00',
     },
-    secondary: {
+    { // 1 - Color principal
+      lighter: '#97D5E9',
+      light: '#65BAD6',
+      DEFAULT: '#41A3C3',
+      dark: '#238DB0',
+      darker: '#238DB0',
+    },
+    { // 2 - Color secondary
       lighter: '#FFE3A1',
       light: '#FFD673',
-      DEFAULT: '#FFCB4E', // Color secondary
+      DEFAULT: '#FFCB4E',
       dark: '#FFC02A',
       darker: '#F1AA00',
     },
-    tertiary: {
+    { // 3 -Color tertiary
       lighter: '#FFB0A1',
       light: '#FF8973',
-      DEFAULT: '#FF694E', // Color tertiary
+      DEFAULT: '#FF694E',
       dark: '#FF4B2A',
       darker: '#F12500',
     },
+  ],
+  simpleColors: {
     white: '#ffffff',      // Blanco
-    black: '#111111',      // Negro
+    black: '#111111',       // Negro
   },
   empresa: {
     name: "Ideas Propias",
@@ -46,7 +49,26 @@ export const config = {
     logo: [],
     index: [],
   },
-  servicios: "Markdown",
+  servicios: [ // TODO pasar a "Markdown"
+    {
+      title: "Disertación",
+      subtitle: "Detalles",
+      img: "/Icono.svg",
+      url: "#",
+    },
+    {
+      title: "Asistencia",
+      subtitle: "Detalles",
+      img: "/Icono.svg",
+      url: "#",
+    },
+    {
+      title: "Rescate",
+      subtitle: "Detalles",
+      img: "/Icono.svg",
+      url: "#",
+    },
+  ],
   blog: "Markdown",
 }
 
@@ -56,12 +78,12 @@ export const tailwindExtend = {
     subtitle: ['Poiret One', ...defaultTheme.fontFamily.sans],
   },
   colors: {
-    primary: config.colors.primary,
-    secondary: config.colors.secondary,
-    tertiary: config.colors.tertiary,
-    complementary: config.colors.complementary,
-    white: config.colors.white,
-    black: config.colors.black,
+    primary: config.colors[1],
+    secondary: config.colors[2],
+    tertiary: config.colors[3],
+    complementary: config.colors[0],
+    white: config.simpleColors.white,
+    black: config.simpleColors.black,
   },
   boxShadow: {
     // Resplandor
