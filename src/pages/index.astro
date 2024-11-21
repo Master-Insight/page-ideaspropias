@@ -13,12 +13,12 @@ const SERVICES = config.servicios;
     style={`background-image: url('${config.images.index[0]}'); background-size: cover ; background-position: top;`}
   >
     {/* Capa de atenuación */}
-    <div class={"absolute inset-0 bg-primary-lighter opacity-70"}></div>
+    <div class={"absolute inset-0 bg-primary-lighter opacity-80"}></div>
 
     <div class="relative z-10">
       {/* Esto asegura que el contenido quede encima de la capa */}
 
-      <h2 class="text-4xl font-title text-primary">
+      <h2 class="text-6xl font-title text-primary">
         Bienvenidos a nuestra plataforma
       </h2>
 
@@ -34,14 +34,21 @@ const SERVICES = config.servicios;
     <p class="w-4/5 text-2xl">
       <span class="font-bold">Ideas Propias</span> es una consultora integral de
       negocios que asesora a empresas, empresarios y emprendedores que tienen ambición
-      de progresar en su negocio.
+      de progresar en su negocio. <strong class="text-red-500"
+        >(Corregir esto con nuevo texto)</strong
+      >
     </p>
     <p class="mt-6 w-4/5 italic text-xl">
       Con mas de 20 años de trayectoria y exitosas gestiones ponemos a tu
       disposición todo nuestro conocimiento en distintas áreas para que tengas
       un acompañamiento real y efectivo que te impulse al éxito de tu negocio.
     </p>
+    <strong class="text-red-500">Agregar aqui un video</strong>
   </div>
+
+  <!-- TODO Video introduciión -->
+
+  <!-- Cards Servicios -->
   <div
     class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
   >

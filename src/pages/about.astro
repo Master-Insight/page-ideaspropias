@@ -1,7 +1,28 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { config } from "config";
 ---
 
 <Layout title="Nosotros - Ideas Propias">
+  <!-- Hero -->
+  <section
+    class="relative h-144 flex flex-col justify-center items-center text-center mb-4 bg-primary-lighter shadow-glow shadow-gray-300"
+    style={`background-image: url('${config.images.about[0]}'); background-size: cover ; background-position: top;`}
+  >
+    {/* Capa de atenuación */}
+    <div class={"absolute inset-0 bg-primary-lighter opacity-40"}></div>
 
+    <div class="relative w-full z-10">
+      {/* Esto asegura que el contenido quede encima de la capa */}
+
+      <p class="text-7xl w-3/4 mx-auto font-title text-primary">
+        Nuestra historia
+      </p>
+
+      {/* Subtítulo opcional */}
+      <!-- <p class="bg-primary p-4 text-3xl font-subtitle font-bold mt-6">
+        Ve nuestras opciones
+      </p> -->
+    </div>
+  </section>
 </Layout>

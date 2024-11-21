@@ -59,7 +59,16 @@ export const config = {
       "/logo-planx5.png",
     ],
     index: [
-      "/images/hero_inicio.jpeg" // pos 0 Hero
+      "/images/hero_inicio.jpeg", // pos 0 Hero
+    ],
+    about: [
+      "/images/Diego-presentando.jpg", // pos 0 Hero
+    ],
+    services: [
+      "/images/capacitacion.jpeg", // pos 0 Hero
+    ],
+    contact: [
+      "/images/Conversacion.jpeg", // pos 0 Hero
     ],
   },
   // Objeto que detalle servicios prestados
