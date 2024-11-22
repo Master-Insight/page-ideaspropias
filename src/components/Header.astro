@@ -27,7 +27,7 @@ const pages = [
   <div class="mx-auto max-w-screen-xl px-4 sm:p-4 lg:p-8">
     <div class="flex h-16 items-center justify-between">
       <div class="flex-1 md:flex md:items-center md:gap-12">
-        <a href="/" aria-label="Regresar a la página de inicio">
+        <a href="/" aria-label="Regresar a la página de inicio" class="inline-flex">
           <img
             src="/logo-color.svg"
             alt="Logo de Ideas Propias"
@@ -41,7 +41,7 @@ const pages = [
           <ul class="flex justify-between items-center gap-6 text-lg">
             {
               pages.map((link) => (
-                <li class="hover:text-details-gold transition">
+                <li class="hover:text-primary-light transition">
                   <a href={link.href}>{link.name}</a>
                 </li>
               ))
@@ -70,12 +70,45 @@ const pages = [
           </button>
         </div>
       </div>
+
+      <div class="md:hidden navContent absolute bg-white h-screen w-screen top-0 left-0 animate-duration-slow z-50 pt-28" id="menuMobile">
+        <nav class="flex flex-col gap-6 items-center">
+          {pages.map(({name, href}) => (
+            <a href={href} class="relative">
+              <span class="z-10">{name}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
     </div>
   </div>
 </header>
+
+<style>
+  #menuMobile {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #menuMobile.open {
+    opacity: 1 !important;
+    pointer-events: all;
+  }
+</style>
 
 <script>
   import { $ } from "@/lib/dom-selector";
 
   const menuButton = $('#menuButton')
+  const navContent = $('.navContent')
+  const menuMobile = $('#menuMobile')
+
+  function toggleMenu(){
+
+    navContent?.classList.toggle("animate-bounce-fade-in")
+  }
+
+  menuButton.addEventListener('click', () => 
+  toggleMenu()
+  )
 </script>
