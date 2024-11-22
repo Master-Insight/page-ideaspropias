@@ -1,24 +1,24 @@
 ---
-const LINKS = [
+const pages = [
   {
-    title: "Inicio",
-    link: "/",
+    name: "Inicio",
+    href: "/",
   },
   {
-    title: "Nosotros",
-    link: "/about",
+    name: "Nosotros",
+    href: "/about",
   },
   {
-    title: "Servicios",
-    link: "/services",
+    name: "Servicios",
+    href: "/services",
   },
   {
-    title: "Contacto",
-    link: "/contact",
+    name: "Contacto",
+    href: "/contact",
   },
   {
-    title: "Aux",
-    link: "/components",
+    name: "Aux",
+    href: "/components",
   },
 ];
 ---
@@ -40,9 +40,9 @@ const LINKS = [
         <nav aria-label="Global" class="hidden md:block">
           <ul class="flex justify-between items-center gap-6 text-lg">
             {
-              LINKS.map((l) => (
+              pages.map((link) => (
                 <li class="hover:text-details-gold transition">
-                  <a href={l.link}>{l.title}</a>
+                  <a href={link.href}>{link.name}</a>
                 </li>
               ))
             }
@@ -51,6 +51,7 @@ const LINKS = [
 
         <div class="block md:hidden">
           <button
+            id="menuButton"
             class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
           >
             <svg
@@ -72,3 +73,9 @@ const LINKS = [
     </div>
   </div>
 </header>
+
+<script>
+  import { $ } from "@/lib/dom-selector";
+
+  const menuButton = $('#menuButton')
+</script>
