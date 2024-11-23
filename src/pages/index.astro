@@ -4,6 +4,9 @@ import Layout from "@/layouts/Layout.astro";
 import { config } from "config";
 
 const SERVICES = config.servicios;
+
+// bg-primary-lighter
+// bg-gradient-to-tl from-primary via-primary-light via-primary-lighter to-primary-lighter
 ---
 
 <Layout title="Ideas Propias">
@@ -13,7 +16,10 @@ const SERVICES = config.servicios;
     style={`background-image: url('${config.images.index[0]}'); background-size: cover ; background-position: top;`}
   >
     {/* Capa de atenuación */}
-    <div class={"absolute inset-0 bg-primary-lighter opacity-80"}></div>
+    <div
+      class={"absolute inset-0 bg-gradient-to-tl from-primary via-primary-light via-primary-lighter to-primary-lighter opacity-80"}
+    >
+    </div>
 
     <div class="relative z-10">
       {/* Esto asegura que el contenido quede encima de la capa */}

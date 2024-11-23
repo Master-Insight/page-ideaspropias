@@ -2,6 +2,9 @@
 import Layout from "@/layouts/Layout.astro";
 import Team from "@/components/Team.astro";
 import { config } from "config";
+
+// bg-primary-lighter
+// bg-gradient-to-tl from-primary via-primary-light via-primary-lighter to-primary-lighter
 ---
 
 <Layout title="Contacto - Ideas Propias">
@@ -11,7 +14,10 @@ import { config } from "config";
     style={`background-image: url('${config.images.contact[0]}'); background-size: cover ; background-position: top;`}
   >
     {/* Capa de atenuación */}
-    <div class={"absolute inset-0 bg-primary-lighter opacity-40"}></div>
+    <div
+      class={"absolute inset-0 bg-gradient-to-tl from-primary via-primary-light via-primary-lighter to-primary-lighter opacity-40"}
+    >
+    </div>
 
     <div class="relative w-full z-10">
       {/* Esto asegura que el contenido quede encima de la capa */}

@@ -4,6 +4,7 @@ import Card from "@/components/Card.astro";
 import { config } from "config";
 
 const SERVICES = config.servicios;
+// bg-complementary-lighter
 ---
 
 <Layout title="Servicios - Ideas Propias">
@@ -13,7 +14,10 @@ const SERVICES = config.servicios;
     style={`background-image: url('${config.images.services[0]}'); background-size: cover ; background-position: top;`}
   >
     {/* Capa de atenuación */}
-    <div class={"absolute inset-0 bg-complementary-lighter opacity-60"}></div>
+    <div
+      class={"absolute inset-0 bg-gradient-to-tl from-complementary via-complementary-light via-complementary-light to-complementary-lighter opacity-50"}
+    >
+    </div>
 
     <div class="relative w-full z-10">
       {/* Esto asegura que el contenido quede encima de la capa */}

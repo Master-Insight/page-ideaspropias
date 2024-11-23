@@ -39,6 +39,10 @@ export const config = {
     white: '#ffffff',      // Blanco
     black: '#111111',       // Negro
   },
+  gradient: {
+    primary: "linear-gradient(317deg, rgba(35,141,176,1) 0%, rgba(65,163,195,1) 35%, rgba(65,163,195,1) 68%, rgba(151,213,233,1) 100%)",
+    complementary: "linear-gradient(317deg, rgba(241,124,0,1) 0%, rgba(255,169,78,1) 35%, rgba(255,169,78,1) 68%, rgba(151,213,233,1) 100%)"
+  },
   // Información de la empresa (se autocompleta en footer y enlace redes sociales)
   empresa: {
     name: "Ideas Propias",

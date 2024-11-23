@@ -2,20 +2,30 @@
 const { data } = Astro.props;
 const { given_name, position, image, imageCss, description, linkedin, email } =
   data;
+
+// bg-primary-lighter
+// bg-gradient-to-tl from-gray-500 via-gray-300 via-gray-300 to-gray-100
 ---
 
 <div
   class="group relative block overflow-hidden rounded-lg shadow-lg transition duration-300 hover:shadow-2xl"
 >
-  <img
-    src={image}
-    alt={`Foto de perfil de ${given_name}`}
-    class={`h-64 w-full object-cover transition duration-500 group-hover:scale-105 ${imageCss}`}
-  />
+  <div class="relative">
+    <img
+      src={image}
+      alt={`Foto de perfil de ${given_name}`}
+      class={`h-96 w-full object-cover transition duration-500 group-hover:scale-105 ${imageCss}`}
+    />
+    <!-- Capa gris sobre la imagen -->
+    <div
+      class="absolute inset-0 bg-gradient-to-tl from-gray-700 via-gray-500 via-gray-100 to-gray-100 opacity-40"
+    >
+    </div>
+  </div>
 
   <div class="relative bg-white p-6 border-t border-gray-200">
     <h3
-      class="text-xl font-bold text-gray-900 group-hover:text-[#238DB0] transition"
+      class="text-xl font-bold text-gray-900 group-hover:text-primary-darker transition"
     >
       {given_name}
     </h3>
@@ -32,7 +42,7 @@ const { given_name, position, image, imageCss, description, linkedin, email } =
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-[#41A3C3] hover:text-[#238DB0] transition">
+            class="text-primary hover:text-primary-darker transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -47,7 +57,7 @@ const { given_name, position, image, imageCss, description, linkedin, email } =
         email && (
           <a
             href={`mailto:${email}`}
-            class="text-[#FF694E] hover:text-[#FF4B2A] transition">
+            class="text-secondary hover:text-secondary-darker transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
