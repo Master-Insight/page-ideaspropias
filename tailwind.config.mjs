@@ -1,7 +1,7 @@
 import typography from '@tailwindcss/typography'
+import animations from '@midudev/tailwind-animations'
 //import defaultTheme from 'tailwindcss/defaultTheme'
-import { tailwindExtend } from './config'
-
+import {tailwindExtend} from './config'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -9,5 +9,5 @@ export default {
   theme: {
     extend: tailwindExtend,
   },
-  plugins: [typography],
+  plugins: [typography, animations],
 }

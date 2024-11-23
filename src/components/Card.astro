@@ -3,12 +3,12 @@ const { data } = Astro.props;
 const { title, subtitle, img, url = "#" } = data;
 ---
 
-<section
-  class="w-72 h-72 relative flex flex-col justify-center items-center text-center mb-4 p-4 bg-primary-lighter shadow-glow rounded-lg"
-  style=`background-image: url('${img}'); background-size: cover ; background-position: center;`
+<arcticle
+  class="w-72 h-72 relative flex flex-col justify-center items-center text-center mb-4 p-4 bg-primary-lighter shadow-lg rounded-lg container"
+  style=`background-image: url('${img}'); background-size: 50% ; background-position: center; background-repeat: no-repeat;`
 >
   {/* Capa de atenuación */}
-  <div class="absolute inset-0 bg-primary-lighter opacity-90 rounded-lg">
+  <div class="absolute inset-0 bg-primary-lighter opacity-95 rounded-lg">
     <div
       class="w-72 h-72 flex flex-col items-center justify-center relative z-10"
     >
@@ -18,10 +18,10 @@ const { title, subtitle, img, url = "#" } = data;
       {/* Botón opcional con enlace */}
       <a
         href={url}
-        class="mt-6 inline-block bg-primary text-white py-3 px-6 rounded hover:bg-primary-dark"
+        class="mt-6 inline-block bg-primary text-white py-3 px-6 rounded hover:bg-primary-dark transition duration-60"
       >
         Ver más
       </a>
     </div>
   </div>
-</section>
+</arcticle>
