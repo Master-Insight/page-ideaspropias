@@ -101,20 +101,20 @@ export const config = {
   // Equipo
   team: [
     {
-      given_name: "Gustavo Massa",
-      position: "Talento Humano",
-      linkedin: "https://www.linkedin.com/in/coachgustavomassa/",
-      email: "",
-      image: "/images/people/gustavo_massa.jpg",
-      imageCss: "",
-      description: ""
-    },
-    {
       given_name: "Diego Cecconello",
       position: "Plan de Acción",
       linkedin: "https://www.linkedin.com/in/diego-cecconello-42b890a0/",
       email: "",
       image: "/images/people/diego_ceconelllo.jpg",
+      imageCss: "",
+      description: ""
+    },
+    {
+      given_name: "Gustavo Massa",
+      position: "Talento Humano",
+      linkedin: "https://www.linkedin.com/in/coachgustavomassa/",
+      email: "",
+      image: "/images/people/gustavo_massa.jpg",
       imageCss: "",
       description: ""
     },
@@ -162,3 +162,15 @@ export const tailwindExtend = {
     "144": "36rem",
   }
 }
+
+/*
+export const tailwindSizes = {
+  sm: 'w-16 h-16',      // Small (64px)
+  md: 'w-32 h-32',      // Medium (128px)
+  lg: 'w-48 h-48',      // Large (192px)
+  xl: 'w-64 h-64',      // Extra Large (256px)
+  '2xl': 'w-80 h-80',   // 2X Large (320px)
+  '3xl': 'w-96 h-96',   // 3X Large (384px)
+  full: 'w-full h-full', // Full Size (100%)
+};
+*/
