@@ -16,18 +16,20 @@ const pages = [
     name: "Contacto",
     href: "/contact",
   },
-  {
-    name: "Aux",
-    href: "/components",
-  },
 ];
 ---
 
-<header class="sticky top-0 right-0 left-0 bg-white/65 backdrop-blur-md z-50 transitio-all duration-700">
+<header
+  class="sticky top-0 right-0 left-0 bg-white/65 backdrop-blur-md z-50 transitio-all duration-700"
+>
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:p-8">
     <nav class="flex items-center justify-between h-16">
       <div class="flex-1 md:flex md:items-center md:gap-12">
-        <a href="/" aria-label="Regresar a la página de inicio" class="inline-flex">
+        <a
+          href="/"
+          aria-label="Regresar a la página de inicio"
+          class="inline-flex"
+        >
           <img
             src="/logo-color.svg"
             alt="Logo de Ideas Propias"
@@ -38,13 +40,15 @@ const pages = [
 
       <div class="hidden md:flex md:items-center md:gap-12">
         <ul class="flex items-center gap-6 text-lg">
-          {pages.map((link) => (
-            <li>
-              <a href={link.href} class="hover:text-primary-light transition">
-                {link.name}
-              </a>
-            </li>
-          ))}
+          {
+            pages.map((link) => (
+              <li>
+                <a href={link.href} class="hover:text-primary-light transition">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
@@ -66,8 +70,7 @@ const pages = [
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
@@ -80,14 +83,15 @@ const pages = [
   >
     <div class="flex flex-col h-full">
       <nav class="flex flex-col items-center justify-center flex-grow py-8">
-        {pages.map((link) => (
-          <a
-            href={link.href}
-            class="text-xl py-4 hover:text-primary-light transition"
-          >
-            {link.name}
-          </a>
-        ))}
+        {
+          pages.map((link) => (
+            <a
+              href={link.href}
+              class="text-xl py-4 hover:text-primary-light transition">
+              {link.name}
+            </a>
+          ))
+        }
       </nav>
     </div>
   </div>
@@ -96,29 +100,37 @@ const pages = [
 <script>
   import { $ } from "@/lib/dom-selector";
 
-  const menuButton = $('#menuButton')
-  const mobileMenu = $('#mobileMenu')
-  const header = $('header')
+  const menuButton = $("#menuButton");
+  const mobileMenu = $("#mobileMenu");
+  const header = $("header");
 
   if (menuButton && mobileMenu) {
-    menuButton.addEventListener('click', () => {
-      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true'
-      menuButton.setAttribute('aria-expanded', String(!isExpanded))
-      
+    menuButton.addEventListener("click", () => {
+      const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isExpanded));
+
       if (isExpanded) {
-        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'animate-bounce-fade-in')
-        mobileMenu.classList.add('opacity-0', 'pointer-events-none')
-        header.classList.add('bg-white/65', 'backdrop-blur-md')
-        header.classList.remove('bg-white')
+        mobileMenu.classList.remove(
+          "opacity-100",
+          "pointer-events-auto",
+          "animate-bounce-fade-in",
+        );
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        header.classList.add("bg-white/65", "backdrop-blur-md");
+        header.classList.remove("bg-white");
       } else {
-        mobileMenu.classList.remove('opacity-0', 'pointer-events-none')
-        mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'animate-bounce-fade-in')
-        header.classList.remove('bg-white/65', 'backdrop-blur-md')
-        header.classList.add('bg-white')
+        mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+        mobileMenu.classList.add(
+          "opacity-100",
+          "pointer-events-auto",
+          "animate-bounce-fade-in",
+        );
+        header.classList.remove("bg-white/65", "backdrop-blur-md");
+        header.classList.add("bg-white");
       }
-      
+
       // Cambio del ícono del botón
-      const svg = $('svg', menuButton)
+      const svg = $("svg", menuButton);
       if (svg) {
         if (isExpanded) {
           svg.innerHTML = `
@@ -127,9 +139,9 @@ const pages = [
         } else {
           svg.innerHTML = `
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-          `
+          `;
         }
       }
-    })
+    });
   }
 </script>
