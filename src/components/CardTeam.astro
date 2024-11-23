@@ -1,0 +1,63 @@
+---
+const { data } = Astro.props;
+const { given_name, position, image, imageCss, description, linkedin, email } =
+  data;
+---
+
+<div
+  class="group relative block overflow-hidden rounded-lg shadow-lg transition duration-300 hover:shadow-2xl"
+>
+  <img
+    src={image}
+    alt={`Foto de perfil de ${given_name}`}
+    class={`h-64 w-full object-cover transition duration-500 group-hover:scale-105 ${imageCss}`}
+  />
+
+  <div class="relative bg-white p-6 border-t border-gray-200">
+    <h3
+      class="text-xl font-bold text-gray-900 group-hover:text-[#238DB0] transition"
+    >
+      {given_name}
+    </h3>
+    <p class="mt-1 text-sm text-gray-600">{position}</p>
+
+    <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+      {description}
+    </p>
+
+    <div class="mt-6 flex justify-between items-center">
+      {
+        linkedin && (
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[#41A3C3] hover:text-[#238DB0] transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-6 h-6"
+              viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.22c-1 0-1.5-.72-1.5-1.61 0-.91.5-1.61 1.5-1.61s1.5.7 1.5 1.61c0 .89-.5 1.61-1.5 1.61zm13.5 10.22h-3v-4.78c0-1.14-.02-2.61-1.59-2.61-1.59 0-1.84 1.25-1.84 2.54v4.85h-3v-9h2.88v1.23h.04c.4-.75 1.37-1.54 2.82-1.54 3.02 0 3.58 1.99 3.58 4.58v4.73z" />
+            </svg>
+          </a>
+        )
+      }
+      {
+        email && (
+          <a
+            href={`mailto:${email}`}
+            class="text-[#FF694E] hover:text-[#FF4B2A] transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-6 h-6"
+              viewBox="0 0 24 24">
+              <path d="M12 12.713l11.715-7.713h-23.43l11.715 7.713zm11.715-8.713h-23.43c-1.55 0-1.55 1.2 0 2l11.715 7.713 11.715-7.713c1.55-.8 1.55-2 0-2zm-23.43 2v12h23.43v-12l-11.715 7.713-11.715-7.713z" />
+            </svg>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>

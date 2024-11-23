@@ -5,8 +5,7 @@
   "spellright.documentTypes": [
     "markdown",
     "latex",
-    "plaintext",
-    "astro"
+    "plaintext"
   ],
   "spellright.parserByClass": {
     "astro": {

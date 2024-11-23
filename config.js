@@ -42,7 +42,7 @@ export const config = {
   // Información de la empresa (se autocompleta en footer y enlace redes sociales)
   empresa: {
     name: "Ideas Propias",
-    descripcion: "Consultora integral de negocios que asesora a empresas, empresarios y emprendedores que tienen ambición de progresar en su negocio.",
+    descripcion: "Consultora integral de negocios que brinda asesoramiento a empresas, empresarios y emprendedores con la visión y el deseo de impulsar el crecimiento de sus negocios.",
     direccion: "dirección",
     email: "email@email.com",
     linkedin: "https://www.linkedin.com/",
@@ -63,6 +63,8 @@ export const config = {
     ],
     about: [
       "/images/Diego-presentando.jpg", // pos 0 Hero
+      "/images/Escuchando.jpg", // pos 1 fondo historia
+      "/images/Exponiendo2.jpg", // pos 2 historia
     ],
     services: [
       "/images/capacitacion.jpeg", // pos 0 Hero
@@ -90,6 +92,36 @@ export const config = {
       subtitle: "Detalles",
       img: "/Icono.svg",
       url: "#",
+    },
+  ],
+  // Equipo
+  team: [
+    {
+      given_name: "Gustavo Massa",
+      position: "Talento Humano",
+      linkedin: "https://www.linkedin.com/in/coachgustavomassa/",
+      email: "",
+      image: "/images/people/gustavo_massa.jpg",
+      imageCss: "",
+      description: ""
+    },
+    {
+      given_name: "Diego Cecconello",
+      position: "Plan de Acción",
+      linkedin: "https://www.linkedin.com/in/diego-cecconello-42b890a0/",
+      email: "",
+      image: "/images/people/diego_ceconelllo.jpg",
+      imageCss: "",
+      description: ""
+    },
+    {
+      given_name: "Flavia Joubert",
+      position: "Identidad Empresarial",
+      linkedin: "https://www.linkedin.com/in/flavia-joubert/",
+      email: "",
+      image: "/images/people/flavia_joubert.jpeg",
+      imageCss: "",
+      description: ""
     },
   ],
   blog: "Markdown",

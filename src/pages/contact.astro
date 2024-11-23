@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Team from "@/components/Team.astro";
 import { config } from "config";
 ---
 
@@ -23,4 +24,7 @@ import { config } from "config";
       </p> -->
     </div>
   </section>
+
+  <!-- Team -->
+  <Team title={"Nuestro equipo"} team={config.team} />
 </Layout>
