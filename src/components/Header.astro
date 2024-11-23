@@ -23,92 +23,113 @@ const pages = [
 ];
 ---
 
-<header class="sticky top-0 right-0 left-0 bg-[#fff]/65 backdrop-blur-md z-50">
-  <div class="mx-auto max-w-screen-xl px-4 sm:p-4 lg:p-8">
-    <div class="flex h-16 items-center justify-between">
+<header class="sticky top-0 right-0 left-0 bg-white/65 backdrop-blur-md z-50 transitio-all duration-700">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:p-8">
+    <nav class="flex items-center justify-between h-16">
       <div class="flex-1 md:flex md:items-center md:gap-12">
         <a href="/" aria-label="Regresar a la página de inicio" class="inline-flex">
           <img
             src="/logo-color.svg"
             alt="Logo de Ideas Propias"
-            class="w-auto h-10"
+            class="h-10 w-auto"
           />
         </a>
       </div>
 
-      <div class="md:flex md:items-center md:gap-12">
-        <nav aria-label="Global" class="hidden md:block">
-          <ul class="flex justify-between items-center gap-6 text-lg">
-            {
-              pages.map((link) => (
-                <li class="hover:text-primary-light transition">
-                  <a href={link.href}>{link.name}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </nav>
-
-        <div class="block md:hidden">
-          <button
-            id="menuButton"
-            class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="md:hidden navContent absolute bg-white h-screen w-screen top-0 left-0 animate-duration-slow z-50 pt-28" id="menuMobile">
-        <nav class="flex flex-col gap-6 items-center">
-          {pages.map(({name, href}) => (
-            <a href={href} class="relative">
-              <span class="z-10">{name}</span>
-            </a>
+      <div class="hidden md:flex md:items-center md:gap-12">
+        <ul class="flex items-center gap-6 text-lg">
+          {pages.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-primary-light transition">
+                {link.name}
+              </a>
+            </li>
           ))}
-        </nav>
+        </ul>
       </div>
+
+      <div class="md:hidden">
+        <button
+          id="menuButton"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 z-50 relative"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <div
+    id="mobileMenu"
+    class="fixed top-16 left-0 right-0 bottom-0 bg-white h-screen z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out md:hidden"
+  >
+    <div class="flex flex-col h-full">
+      <nav class="flex flex-col items-center justify-center flex-grow py-8">
+        {pages.map((link) => (
+          <a
+            href={link.href}
+            class="text-xl py-4 hover:text-primary-light transition"
+          >
+            {link.name}
+          </a>
+        ))}
+      </nav>
     </div>
   </div>
 </header>
-
-<style>
-  #menuMobile {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  #menuMobile.open {
-    opacity: 1 !important;
-    pointer-events: all;
-  }
-</style>
 
 <script>
   import { $ } from "@/lib/dom-selector";
 
   const menuButton = $('#menuButton')
-  const navContent = $('.navContent')
-  const menuMobile = $('#menuMobile')
+  const mobileMenu = $('#mobileMenu')
+  const header = $('header')
 
-  function toggleMenu(){
-
-    navContent?.classList.toggle("animate-bounce-fade-in")
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true'
+      menuButton.setAttribute('aria-expanded', String(!isExpanded))
+      
+      if (isExpanded) {
+        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'animate-bounce-fade-in')
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none')
+        header.classList.add('bg-white/65', 'backdrop-blur-md')
+        header.classList.remove('bg-white')
+      } else {
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none')
+        mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'animate-bounce-fade-in')
+        header.classList.remove('bg-white/65', 'backdrop-blur-md')
+        header.classList.add('bg-white')
+      }
+      
+      // Cambio del ícono del botón
+      const svg = $('svg', menuButton)
+      if (svg) {
+        if (isExpanded) {
+          svg.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          `;
+        } else {
+          svg.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          `
+        }
+      }
+    })
   }
-
-  menuButton.addEventListener('click', () => 
-  toggleMenu()
-  )
 </script>
