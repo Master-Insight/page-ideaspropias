@@ -1,8 +1,13 @@
 ---
+import { getCollection } from "astro:content";
 import CardTeam from "./CardTeam.astro";
 
-const { title, team } = Astro.props;
-const MYTEAM = team;
+const { title } = Astro.props;
+// const { title, team } = Astro.props;
+// const MYTEAM = team;
+
+const teams = await getCollection("team");
+console.log(teams);
 ---
 
 <section class="bg-white">
@@ -16,7 +21,7 @@ const MYTEAM = team;
     </h2>
 
     <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-      {MYTEAM.map((element) => <CardTeam data={element} />)}
+      <!-- {MYTEAM.map((element) => <CardTeam data={element} />)} -->
     </div>
   </div>
 </section>
