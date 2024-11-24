@@ -1,73 +1,79 @@
 ---
 const pages = [
   {
-    name: "Inicio",
-    href: "/",
+    name: 'Inicio',
+    href: '/',
   },
   {
-    name: "Nosotros",
-    href: "/about",
+    name: 'Nosotros',
+    href: '/about',
   },
   {
-    name: "Servicios",
-    href: "/services",
+    name: 'Servicios',
+    href: '/services',
   },
   {
-    name: "Contacto",
-    href: "/contact",
+    name: 'Contacto',
+    href: '/contact',
   },
-  {
-    name: "Aux",
-    href: "/components",
-  },
-]
+];
 ---
 
-<header class="sticky top-0 right-0 left-0 bg-white/65 backdrop-blur-md z-50 transition-all duration-200">
-  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:p-8">
-    <nav class="flex items-center justify-between h-16">
-      <div class="flex-1 md:flex md:items-center md:gap-12">
-        <a href="/" aria-label="Regresar a la página de inicio" class="inline-flex">
+<header
+  class='sticky top-0 right-0 left-0 bg-white/65 backdrop-blur-md z-50 transition-all duration-200'
+>
+  <div class='mx-auto max-w-screen-xl px-4 sm:px-6 lg:p-8'>
+    <nav class='flex items-center justify-between h-16'>
+      <div class='flex-1 md:flex md:items-center md:gap-12'>
+        <a
+          href='/'
+          aria-label='Regresar a la página de inicio'
+          class='inline-flex'
+        >
           <img
-            src="/logo-color.svg"
-            alt="Logo de Ideas Propias"
-            class="h-10 w-auto"
+            src='/logo-color.svg'
+            alt='Logo de Ideas Propias'
+            class='h-10 w-auto'
           />
         </a>
       </div>
 
-      <div class="hidden md:flex md:items-center md:gap-12">
-        <ul class="flex items-center gap-6 text-lg">
-          {pages.map((link) => (
-            <li>
-              <a href={link.href} class="hover:text-primary-light transition">
-                {link.name}
-              </a>
-            </li>
+      <div class='hidden md:flex md:items-center md:gap-12'>
+        <ul class='flex items-center gap-6 text-lg'>
+          {
+            pages.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class='hover:text-primary-light transition'
+                >
+                  {link.name}
+                </a>
+              </li>
             ))
           }
         </ul>
       </div>
 
-      <div class="md:hidden">
+      <div class='md:hidden'>
         <button
-          id="menuButton"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-          class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 z-50 relative"
+          id='menuButton'
+          aria-label='Abrir menú'
+          aria-expanded='false'
+          class='rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 z-50 relative'
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-5 w-5'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M4 6h16M4 12h16M4 18h16'
             ></path>
           </svg>
         </button>
@@ -76,16 +82,16 @@ const pages = [
   </div>
 
   <div
-    id="mobileMenu"
-    class="menu-closed fixed top-16 left-0 right-0 bottom-0 bg-white h-screen z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out md:hidden"
+    id='mobileMenu'
+    class='menu-closed fixed top-16 left-0 right-0 bottom-0 bg-white h-screen z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out md:hidden'
   >
-    <div class="flex flex-col h-full">
-      <nav class="flex flex-col items-center justify-center py-8">
+    <div class='flex flex-col h-full'>
+      <nav class='flex flex-col items-center justify-center py-8'>
         {
           pages.map((link) => (
             <a
               href={link.href}
-              class="text-xl py-4 hover:text-primary-light transition"
+              class='text-xl py-4 hover:text-primary-light transition'
             >
               {link.name}
             </a>
@@ -94,7 +100,11 @@ const pages = [
       </nav>
     </div>
   </div>
-  <div id="fullBg" class="fixed top-16 h-screen inset-0 bg-white opacity-0 transition-all duration-200"></div>
+  <div
+    id='fullBg'
+    class='fixed top-16 h-screen inset-0 bg-white opacity-0 transition-all duration-200'
+  >
+  </div>
 </header>
 
 <style>
@@ -107,28 +117,28 @@ const pages = [
   }
 
   .fill-background {
-    @apply opacity-100
+    @apply opacity-100;
   }
 </style>
 
 <script>
-  import { $ } from "@/lib/dom-selector"
+  import {$} from '@/lib/dom-selector'
 
   const menuButton = $('#menuButton')
   const mobileMenu = $('#mobileMenu')
   const header = $('header')
   const fullBg = $('#fullBg')
 
-  menuButton.addEventListener("click", () => {
-    const isExpanded = menuButton.getAttribute("aria-expanded") === "true"
-    menuButton.setAttribute("aria-expanded", String(!isExpanded))
+  menuButton.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true'
+    menuButton.setAttribute('aria-expanded', String(!isExpanded))
 
-    mobileMenu.classList.toggle("menu-open", !isExpanded)
-    header.classList.toggle("header-solid", !isExpanded)
-    fullBg.classList.toggle("fill-background", !isExpanded)
+    mobileMenu.classList.toggle('menu-open', !isExpanded)
+    header.classList.toggle('header-solid', !isExpanded)
+    fullBg.classList.toggle('fill-background', !isExpanded)
 
     // Cambio del ícono del botón
-    const svg = $("svg", menuButton)
+    const svg = $('svg', menuButton)
     if (svg) {
       if (isExpanded) {
         svg.innerHTML = `
