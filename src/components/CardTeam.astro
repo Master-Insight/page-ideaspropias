@@ -1,5 +1,6 @@
 ---
-const { data } = Astro.props;
+const { data: Element } = Astro.props;
+const { data } = Element;
 const { given_name, position, image, imageCss, description, linkedin, email } =
   data;
 

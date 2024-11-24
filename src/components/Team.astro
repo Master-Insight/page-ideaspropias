@@ -6,8 +6,8 @@ const { title } = Astro.props;
 // const { title, team } = Astro.props;
 // const MYTEAM = team;
 
-const teams = await getCollection("team");
-console.log(teams);
+const MYTEAM = await getCollection("team");
+MYTEAM.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section class="bg-white">
@@ -21,7 +21,7 @@ console.log(teams);
     </h2>
 
     <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-      <!-- {MYTEAM.map((element) => <CardTeam data={element} />)} -->
+      {MYTEAM.map((element) => <CardTeam data={element} />)}
     </div>
   </div>
 </section>
