@@ -14,8 +14,19 @@ const services = defineCollection({
     person: z.string(),
     subtitle: z.string().optional(),
     img: z.string(),
-  })
-})
+    areas: z
+      .array(
+        z.object({
+          title: z.string(),
+          icon: z.string().optional(), // Emoji o referencia al ícono
+          summary: z.string().optional(), // Breve descripción de la área
+          details: z.string().optional(), // Descripción extendida
+          link: z.string().url().optional(), // Opcional, para redirigir a más detalles
+        })
+      )
+      .optional(),
+  }),
+});
 
 const team = defineCollection({
   type: 'content',
