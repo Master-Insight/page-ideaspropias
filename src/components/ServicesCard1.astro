@@ -1,0 +1,44 @@
+---
+/* console.log: Service
+{
+  id: 'IdentidadEmpresarial.md',
+  data: {
+    order: 3,
+    title: 'Identidad Empresarial',
+    person: 'flaviajoubert',
+    subtitle: 'Detalles',
+    img: '/Icono.svg'
+  },
+  body: 'Cultura',
+  filePath: 'src/content/services/IdentidadEmpresarial.md',
+  digest: 'e400a93d1abee11f',
+  rendered: { html: '<p>Cultura</p>', metadata: [Object] },
+  collection: 'services',
+  slug: 'identidadempresarial',
+  render: [Function: render]
+}*/
+
+const { data: element } = Astro.props;
+const { data, slug } = element;
+const { title, subtitle, img } = data;
+---
+
+<article
+  class="relative flex flex-col w-72 h-72 justify-center items-center text-center p-4 bg-primary-lighter shadow-lg rounded-lg overflow-hidden"
+  style={`background-image: url('${img}'); background-size: 50%; background-position: center; background-repeat: no-repeat;`}
+>
+  {/* Capa de atenuación */}
+  <div class="absolute inset-0 bg-primary-lighter opacity-95 rounded-lg"></div>
+
+  {/* Contenido */}
+  <div class="relative z-10 flex flex-col items-center justify-center">
+    <h3 class="text-3xl font-subtitle font-semibold">{title}</h3>
+    <p class="text-xl mt-2">{subtitle}</p>
+    <a
+      href={`/services/${slug}`}
+      class="mt-4 inline-block bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition duration-150"
+    >
+      Ver más
+    </a>
+  </div>
+</article>

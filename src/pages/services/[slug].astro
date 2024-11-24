@@ -1,0 +1,53 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+/* console.log: Services
+[
+  {
+    id: 'IdentidadEmpresarial.md',
+    data: {
+      order: 3,
+      title: 'Identidad Empresarial',
+      person: 'flaviajoubert',
+      subtitle: 'Detalles',
+      img: '/Icono.svg'
+    },
+    body: 'Cultura',
+    filePath: 'src/content/services/IdentidadEmpresarial.md',
+    digest: 'e400a93d1abee11f',
+    rendered: { html: '<p>Cultura</p>', metadata: [Object] },
+    collection: 'services',
+    slug: 'identidadempresarial',
+    render: [Function: render]
+  },
+  ...
+]*/
+
+export async function getStaticPaths() {
+  const SERVICES = await getCollection("services");
+  // console.log(SERVICES);
+
+  return SERVICES.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { data, slug } = service;
+const { title, person, subtitle, img } = data;
+
+const { Content } = await render(service);
+---
+
+<Layout title={`Servicios de ${title}`}>
+  <div class="flex flex-col items-center m-8 md:m-16">
+    <h1 transition:name={`title-${slug}`} class="text-4xl font-bold mb-4">
+      {title}
+    </h1>
+    <div class="prose my-16">
+      <Content />
+    </div>
+  </div>
+</Layout>

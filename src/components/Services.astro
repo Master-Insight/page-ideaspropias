@@ -1,11 +1,35 @@
 ---
 import { getCollection } from "astro:content";
-import CardService from "./ServicesCard.astro";
+import CardService1 from "./ServicesCard1.astro";
+import CardService2 from "./ServicesCard2.astro";
+import CardService3 from "./ServicesCard3.astro";
 
-const { title } = Astro.props;
+let { title, option = 1 } = Astro.props;
+option = option * 1;
+
+/* console.log: Services
+[
+  {
+    id: 'IdentidadEmpresarial.md',
+    data: {
+      order: 3,
+      title: 'Identidad Empresarial',
+      person: 'flaviajoubert',
+      subtitle: 'Detalles',
+      img: '/Icono.svg'
+    },
+    body: 'Cultura',
+    filePath: 'src/content/services/IdentidadEmpresarial.md',
+    digest: 'e400a93d1abee11f',
+    rendered: { html: '<p>Cultura</p>', metadata: [Object] },
+    collection: 'services',
+    slug: 'identidadempresarial',
+    render: [Function: render]
+  },
+  ...
+]*/
 
 const SERVICES = await getCollection("services");
-// console.log(SERVICES);
 SERVICES.sort((a, b) => a.data.order - b.data.order);
 ---
 
@@ -17,8 +41,18 @@ SERVICES.sort((a, b) => a.data.order - b.data.order);
   </h2>
 
   <div
-    class="grid mt-12 mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
+    class={`mt-12 mx-auto max-w-7xl ${
+      option === 1
+        ? "grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        : "flex flex-col items-center gap-8"
+    } p-4`}
   >
-    {SERVICES.map((service) => <CardService data={service} />)}
+    {
+      SERVICES.map((service) => {
+        if (option === 1) return <CardService1 data={service} />;
+        if (option === 2) return <CardService2 data={service} />;
+        return <CardService3 data={service} />;
+      })
+    }
   </div>
 </section>
