@@ -78,56 +78,10 @@ export const config = {
     ],
   },
   // Objeto que detalle servicios prestados
-  servicios: [ // TODO pasar a "Markdown"
-    {
-      title: "Disertación",
-      subtitle: "Detalles",
-      img: "/Icono.svg",
-      url: "#",
-    },
-    {
-      title: "Asistencia",
-      subtitle: "Detalles",
-      img: "/Icono.svg",
-      url: "#",
-    },
-    {
-      title: "Rescate",
-      subtitle: "Detalles",
-      img: "/Icono.svg",
-      url: "#",
-    },
-  ],
+  servicios: "Markdown",
   // Equipo
-  team: [
-    {
-      given_name: "Diego Cecconello",
-      position: "Plan de Acción",
-      linkedin: "https://www.linkedin.com/in/diego-cecconello-42b890a0/",
-      email: "",
-      image: "/images/people/diego_ceconelllo.jpg",
-      imageCss: "",
-      description: ""
-    },
-    {
-      given_name: "Gustavo Massa",
-      position: "Talento Humano",
-      linkedin: "https://www.linkedin.com/in/coachgustavomassa/",
-      email: "",
-      image: "/images/people/gustavo_massa.jpg",
-      imageCss: "",
-      description: ""
-    },
-    {
-      given_name: "Flavia Joubert",
-      position: "Identidad Empresarial",
-      linkedin: "https://www.linkedin.com/in/flavia-joubert/",
-      email: "",
-      image: "/images/people/flavia_joubert.jpeg",
-      imageCss: "",
-      description: ""
-    },
-  ],
+  team: "Markdown",
+  // blog
   blog: "Markdown",
 }
 

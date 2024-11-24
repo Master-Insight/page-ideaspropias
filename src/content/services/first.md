@@ -1,4 +1,0 @@
----
-title: 
-person: "Flavia Joubert"
----

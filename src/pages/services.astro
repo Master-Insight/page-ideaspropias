@@ -1,10 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Card from "@/components/Card.astro";
+import TServices from "@/components/Services.astro";
 import { config } from "config";
-
-const SERVICES = config.servicios;
-// bg-complementary-lighter
 ---
 
 <Layout title="Servicios - Ideas Propias">
@@ -36,13 +33,5 @@ const SERVICES = config.servicios;
   </section>
 
   <!-- Services -->
-  <section class="mt-36">
-    <h2 class="text-7xl font-title text-center">Nuestros Servicios</h2>
-
-    <div
-      class="grid mt-12 mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
-    >
-      {SERVICES.map((service) => <Card data={service} />)}
-    </div>
-  </section>
+  <TServices title={"Nuestros Servicios"} />
 </Layout>
