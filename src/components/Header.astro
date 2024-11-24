@@ -38,15 +38,12 @@ const pages = [
         </a>
       </div>
 
-      <div class='hidden md:flex md:items-center md:gap-12'>
-        <ul class='flex items-center gap-6 text-lg'>
+      <div class="hidden md:flex md:items-center md:gap-12">
+        <ul class="flex items-center gap-6 text-lg">
           {
             pages.map((link) => (
               <li>
-                <a
-                  href={link.href}
-                  class='hover:text-primary-light transition'
-                >
+                <a href={link.href} class="hover:text-primary-light transition">
                   {link.name}
                 </a>
               </li>
@@ -71,10 +68,10 @@ const pages = [
             stroke-width='2'
           >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M4 6h16M4 12h16M4 18h16'
-            ></path>
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16">
+            </path>
           </svg>
         </button>
       </div>
