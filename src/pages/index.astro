@@ -1,12 +1,7 @@
 ---
-import Card from "@/components/Card.astro";
 import Layout from "@/layouts/Layout.astro";
+import TServices from "@/components/Services.astro";
 import { config } from "config";
-
-const SERVICES = config.servicios;
-
-// bg-primary-lighter
-// bg-gradient-to-tl from-primary via-primary-light via-primary-lighter to-primary-lighter
 ---
 
 <Layout title="Ideas Propias">
@@ -55,9 +50,5 @@ const SERVICES = config.servicios;
   <!-- TODO Video introduciión -->
 
   <!-- Cards Servicios -->
-  <div
-    class="grid mx-auto max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
-  >
-    {SERVICES.map((service) => <Card data={service} />)}
-  </div>
+  <TServices />
 </Layout>

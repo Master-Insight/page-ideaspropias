@@ -1,8 +1,7 @@
 ---
 const { data: Element } = Astro.props;
 const { data } = Element;
-const { given_name, position, image, imageCss, description, linkedin, email } =
-  data;
+const { given_name, position, image, description, linkedin, email } = data;
 
 // bg-primary-lighter
 // bg-gradient-to-tl from-gray-500 via-gray-300 via-gray-300 to-gray-100
@@ -15,7 +14,7 @@ const { given_name, position, image, imageCss, description, linkedin, email } =
     <img
       src={image}
       alt={`Foto de perfil de ${given_name}`}
-      class={`h-96 w-full object-cover transition duration-500 group-hover:scale-105 ${imageCss}`}
+      class={`h-96 w-full object-cover transition duration-500 group-hover:scale-105`}
     />
     <!-- Capa gris sobre la imagen -->
     <div

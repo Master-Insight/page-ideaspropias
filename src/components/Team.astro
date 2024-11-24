@@ -3,10 +3,9 @@ import { getCollection } from "astro:content";
 import CardTeam from "./CardTeam.astro";
 
 const { title } = Astro.props;
-// const { title, team } = Astro.props;
-// const MYTEAM = team;
 
 const MYTEAM = await getCollection("team");
+// console.log(MYTEAM);
 MYTEAM.sort((a, b) => a.data.order - b.data.order);
 ---
 
