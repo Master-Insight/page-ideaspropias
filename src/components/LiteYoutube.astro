@@ -272,7 +272,7 @@ customElements.define('lite-youtube', LiteYTEmbed);
 		contain: content;
 		background-position: center center;
 		background-size: contain;
-    background-repeat: no-repeat;
+        background-repeat: no-repeat;
 		cursor: pointer;
 		aspect-ratio: 16/9;
 		width: 100%;
@@ -340,18 +340,23 @@ lite-youtube > .lyt-playbtn {
     /* …but visually it's still the same size */
     background: no-repeat center/68px 48px;
     /* YT's actual play button svg */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg stroke="white" fill="dodgerBlue" stroke-width="0" viewBox="0 0 1024 1024"  xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M719.4 499.1l-296.1-215A15.9 15.9 0 0 0 398 297v430c0 13.1 14.8 20.5 25.3 12.9l296.1-215a15.9 15.9 0 0 0 0-25.8zm-257.6 134V390.9L628.5 512 461.8 633.1z"></path></svg>');
     position: absolute;
     cursor: pointer;
-    z-index: 1;
-    filter: grayscale(100%);
-    transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
+    z-index: 1; 
+    transition: filter 0.3s ease,
+        transform 0.3s ease;
     border: 0;
+    transform: scale(2)
 }
 
 lite-youtube:hover > .lyt-playbtn,
 lite-youtube .lyt-playbtn:focus {
+    background-image: url('data:image/svg+xml;utf8,<svg stroke="white" fill="dodgerBlue" stroke-width="0" viewBox="0 0 1024 1024"  xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M719.4 499.1l-296.1-215A15.9 15.9 0 0 0 398 297v430c0 13.1 14.8 20.5 25.3 12.9l296.1-215a15.9 15.9 0 0 0 0-25.8zm-257.6 134V390.9L628.5 512 461.8 633.1z"></path></svg>');
+    color: #41A3C3;
     filter: none;
+    transform: scale(2.23);
+    filter: saturate(360%);
 }
 
 /* Post-click styles */
