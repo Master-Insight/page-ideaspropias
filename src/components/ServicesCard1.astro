@@ -32,11 +32,11 @@ const { title, subtitle, img } = data;
 
   {/* Contenido */}
   <div class="relative z-10 flex flex-col items-center justify-center">
-    <h3 class="text-3xl font-subtitle font-semibold">{title}</h3>
+    <h3 class="text-3xl font-subtitle font-semibold w-36 text-wrap text-center">{title}</h3>
     <p class="text-xl mt-2">{subtitle}</p>
     <a
       href={`/services/${slug}`}
-      class="mt-4 inline-block bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition duration-150"
+      class="mt-4 inline-block bg-primary-dark text-white py-2 px-4 rounded-lg hover:saturate-150 transition-all duration-300 hover:scale-105"
     >
       Ver más
     </a>
