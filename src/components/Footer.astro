@@ -1,4 +1,5 @@
 ---
+import Insight from "@/ui/Insight.astro";
 import Line from "@/ui/Line.astro";
 import { config } from "config";
 
@@ -283,13 +284,10 @@ const year = new Date().getFullYear() || 2024;
 
     <div class="mt-12 border-t border-gray-100 pt-6">
       <div class="text-center sm:flex sm:justify-between sm:text-left">
-        <p class="text-sm text-gray-500">
-          <span class="block sm:inline">Todos los derechos reservados.</span>
-        </p>
-
+        <Insight />
         <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
           &copy; {year}
-          {config.empresa.name}
+          {config.empresa.name} - Todos los derechos reservados
         </p>
       </div>
     </div>
